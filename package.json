@@ -1,0 +1,23 @@
+{
+    "name": "my-app",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "install:main": "cd main && npm install",
+        "install:renderer": "cd renderer && npm install",
+        "postinstall": "npm run install:main && npm run install:renderer",
+        "dev:renderer": "cd renderer && cross-env BROWSER=none npm run start",
+        "dev:main": "del main\\dist\\.completed && cd main && npm run build && nodetouch dist/.completed",
+        "dev:build": "concurrently \"npm run dev:renderer\" \"npm run dev:main\"",
+        "dev:wait": "concurrently \"wait-on http://localhost:3000/\" \"wait-on ./main/dist/.completed\"",
+        "dev": "concurrently \"npm run dev:build\" \"npm run dev:wait && cd main && npm run start\""
+    },
+    "devDependencies": {
+        "concurrently": "4.1.0",
+        "wait-on": "3.2.0",
+        "cross-env": "5.2.0",
+        "npm-run-all": "4.1.5",
+        "touch": "3.1.0",
+        "del-cli": "2.0.0"
+    }
+}

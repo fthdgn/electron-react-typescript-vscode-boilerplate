@@ -1,0 +1,17 @@
+{
+    "name": "main",
+    "version": "0.1.0",
+    "private": true,
+    "description": "A minimal Electron application written with Typescript",
+    "scripts": {
+        "build": "tsc",
+        "watch": "tsc -w",
+        "start": "electron --inspect=5858  --remote-debugging-port=9223 ./dist/main.js"
+    },
+    "devDependencies": {
+        "electron": "5.0.3",
+        "electron-devtools-installer": "^2.2.4",
+        "@types/electron-devtools-installer": "^2.2.0",
+        "typescript": "3.5.2"
+    }
+}
