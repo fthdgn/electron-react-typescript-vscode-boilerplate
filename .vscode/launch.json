@@ -2,22 +2,29 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Electron: Main",
             "type": "node",
             "request": "launch",
-            "name": "Launch via NPM",
-            "runtimeExecutable": "npm",
+            "program": "${workspaceRoot}/main/dist/main.js",
+            "args": [],
+            "cwd": "${workspaceRoot}",
+            "runtimeExecutable": "${workspaceRoot}/main/node_modules/.bin/electron.cmd",
             "runtimeArgs": [
-                "run",
-                "dev"
+                "--remote-debugging-port=9222"
             ],
-            "port": 5858
+            "env": {},
+            "sourceMaps": true,
+            "outFiles": [
+                "${workspaceRoot}/main/dist/**/*.js"
+            ],
+            "preLaunchTask": "npm: debug:preLaunch",
         },
         {
             "name": "Electron: Renderer",
             "type": "chrome",
             "request": "attach",
             "webRoot": "${workspaceFolder}/renderer",
-            "port": 9223,
+            "port": 9222,
             "timeout": 30000,
             "url": "http://localhost:3000",
         }
@@ -26,7 +33,7 @@
         {
             "name": "Electron: All",
             "configurations": [
-                "Launch via NPM",
+                "Electron: Main",
                 "Electron: Renderer",
             ]
         }

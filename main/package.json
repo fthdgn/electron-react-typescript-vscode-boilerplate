@@ -6,7 +6,7 @@
     "scripts": {
         "build": "tsc",
         "watch": "tsc -w",
-        "start": "electron --inspect=5858  --remote-debugging-port=9223 ./dist/main.js"
+        "start": "electron ./dist/main.js"
     },
     "devDependencies": {
         "electron": "5.0.3",
