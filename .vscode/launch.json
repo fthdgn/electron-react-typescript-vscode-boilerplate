@@ -8,7 +8,10 @@
             "program": "${workspaceRoot}/main/dist/main.js",
             "args": [],
             "cwd": "${workspaceRoot}",
-            "runtimeExecutable": "${workspaceRoot}/main/node_modules/.bin/electron.cmd",
+            "runtimeExecutable": "${workspaceRoot}/main/node_modules/.bin/electron",
+            "windows": {
+                "runtimeExecutable": "${workspaceRoot}/main/node_modules/.bin/electron.cmd",
+            },
             "runtimeArgs": [
                 "--remote-debugging-port=9222"
             ],
